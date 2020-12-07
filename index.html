@@ -67,7 +67,8 @@
                 /* background-size: cover; */
                 background-color: black;
                 background-repeat: no-repeat;
-                background-size:  100% 100%;
+                background-position: center;
+                background-size:  75% auto;
                height: 680px;
                 position: relative;
                 
@@ -194,29 +195,7 @@ video.fillWidth {
     height: 100%;
     overflow: hidden;
 }
-.content {
-  position: relative;
-  height: 210px;
-  background: rgba(0, 0, 0, 0.5);
-  color: #f1f1f1;
-  width: 100%;
-  /* padding: 20px; */
-}
-#myBtn {
-  width: 100px;
-  font-size: 18px;
-  /* padding: 10px; */
-  border: none;
-  background: #000;
-  color: #fff;
-  cursor: pointer;
-   position: absolute;
-}
 
-#myBtn:hover {
-  background: #ddd;
-  color: black;
-}
         </style>
     </head>
     <body>
@@ -240,7 +219,6 @@ video.fillWidth {
             
         </video>
          
-  <button id="myBtn" onclick="myFunction()">Pause</button>
 
     </div><!-- end video-container -->
              
@@ -286,7 +264,7 @@ video.fillWidth {
                 <a href="robotics club 2020 orientation final.pdf" target="_blank"><span class="btn btn-dark">Club Info</span></a>
             </div>
             <div class="row d-flex justify-content-center mt-4">
-                <a href="https://discord.gg/rN37DuWGFr" target="_blank"><span class="btn btn-dark">To Join Discord</span></a>
+                <a href="https://discord.gg/mDkd3hqD" target="_blank"><span class="btn btn-dark">To Join Discord</span></a>
             </div>
             <div class="row d-flex justify-content-center mt-4">
               <p> For any queries Contact  &nbsp;<br>
@@ -320,18 +298,21 @@ video.fillWidth {
 var video = document.getElementById("myVideo");
 
 // Get the button
-var btn = document.getElementById("myBtn");
-// btn.innerHTML = "Play";
 
-// Pause and play the video, and change the button text
-function myFunction() {
-  if (video.paused) {
+// btn.innerHTML = "Play";
+video.addEventListener("click",()=>{
+    if (video.paused) {
     video.play();
-    btn.innerHTML = "Pause";
-  } else {
+      } else {
     video.pause();
-    btn.innerHTML = "Play";
-  }
-}
+      }
+});
+// Pause and play the video, and change the button text
+video.addEventListener("mouseenter",()=>{
+    video.play();
+});
+video.addEventListener("mouseleave",()=>{
+    video.pause();
+});
 </script>
     </html>
