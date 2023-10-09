@@ -23,7 +23,7 @@
         amount = null;
       }
 
-      url = `upi://pay?pa=9785233367@ybl&pn=Sudesh%20%Garg&mc=0000&mode=02&purpose=00&am=20&cu=INR`;
+      url = `upi://pay?pa=9785233367@ybl&pn=Sudesh%20%Garg&mc=0000&mode=02&purpose=00&am=${amount}&cu=INR`;
 
         try {
           if (amount !== null || amount !== undefined) {
