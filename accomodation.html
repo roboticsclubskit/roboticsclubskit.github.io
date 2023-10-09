@@ -93,7 +93,7 @@
       padding: 0;
     }
     #main {
-      background-color: black;
+      background-color: rgba(0, 0, 0, 0.445);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -120,15 +120,24 @@
       cursor: pointer;
       margin-bottom: 20px;
     }
+
+    #bg{
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      z-index: -1;
+      filter: blur(1.5px);
+    }
   </style>
   <body>
     <div id="main">
+      <img id="bg" src="images/bg.jpeg" />
       <h1 style="color: crimson">Technorion 23 Accomodation</h1>
       <p id="des">Open in Mobile for automatic UPI Payment Redirection</p>
 
       <br />
       <p style="color: crimson">OR</p>
-      <p id="des">Scan this QR Code from your fav UPI App</p>
+      <p id="des">Scan this QR Code from your favourite UPI App</p>
       <!-- <img src="qr/Double.png" alt="" /> -->
       <div id="qrHolder"></div>
     </div>
