@@ -31,18 +31,44 @@
           break;
       }
 
-      url = `upi://pay?pa=9785233367@ybl&pn=Sudesh%20Garg&mc=0000&mode=02&purpose=00&am=${amount}&cu=INR`;
-
-      if (amount == null || amount == undefined || amount == 0) {
-        alert("Link Expired ! Please try again");
+      if (
+        navigator.userAgent.match(/Android/i) ||
+        navigator.userAgent.match(/webOS/i) ||
+        navigator.userAgent.match(/iPhone/i) ||
+        navigator.userAgent.match(/iPad/i) ||
+        navigator.userAgent.match(/iPod/i) ||
+        navigator.userAgent.match(/BlackBerry/i) ||
+        navigator.userAgent.match(/Windows Phone/i)
+      ) {
+        a = true;
       } else {
-        try {
-          window.location.replace(url);
-        } catch (error) {
-          alert("Please open this in mobile browser");
+        a = false;
+      }
+
+      url = `upi://pay?pa=9785233367@ybl&pn=Sudesh%20Garg&mc=0000&mode=02&purpose=00&am=${amount}&cu=INR`;
+      if (
+        window.navigator.userAgent.match(/Android/i) ||
+        window.navigator.userAgent.match(/iPhone/i) ||
+        window.navigator.userAgent.match(/iPad/i)
+      ) {
+        if (amount == null || amount == undefined || amount == 0) {
+          alert("Link Expired ! Please try again");
+        } else {
+          try {
+            window.location.replace(url);
+          } catch (error) {
+            alert("Please open this in mobile browser");
+          }
         }
       }
     </script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
   </head>
 
   <style>
@@ -83,13 +109,18 @@
     }
   </style>
   <body>
+
     <div id="main">
-      <h1>Technorion 23 Accomodation</h1>
-      <p id="des">Click here to pay !</p>
+      <h1 style="color: crimson;">Technorion 23 Accomodation</h1>
+      <p id="des">Open in Mobile for automatic Payment Redirection</p>
+     
       <br />
-      <button id="btn" onclick="openUpi()">Pay using UPI</button>
+      <p style="color: crimson;">OR</p>
+      <p id="des">Scan this QR Code</p>
+      <!-- <button id="btn" onclick="openUpi()">Pay using UPI</button> -->
       <div id="qrHolder"></div>
     </div>
+    <div id="particles-js" ></div>
   </body>
 
   <script>
@@ -97,20 +128,8 @@
       let qrHolder = document.getElementById("qrHolder");
       qrHolder.innerHTML = `<img src='https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${url}'/>`;
     } else {
-      document.getElementById("btn").style.display = "none";
       document.getElementById("des").innerText = "Expired Link";
     }
 
-    function openUpi() {
-      if (amount == null || amount == undefined || amount == 0) {
-        alert("Link Expired ! Please try again");
-      } else {
-        try {
-          window.location.replace(url);
-        } catch (error) {
-          alert("Please open this in mobile browser");
-        }
-      }
-    }
   </script>
 </html>
